@@ -19,11 +19,11 @@ function Masuk() {
             <form className="flex flex-col text-start space-y-4" action="" method="post">
               <div>
                 <label htmlFor="username">Username</label>
-                <input className="rounded-2xl px-3 py-1 bg-transparent border border-white w-full" type="text" id="username" placeholder="Masukkan username" />
+                <input className="rounded-2xl px-3 py-1 bg-transparent border border-white w-full" type="text" id="username" placeholder="Masukkan username" required />
               </div>
               <div className="relative">
                 <label htmlFor="password">Kata Sandi</label>
-                <input className="rounded-2xl px-3 py-1 bg-transparent border border-white w-full pr-10" type={showPassword ? "text" : "password"} id="password" placeholder="Masukkan kata sandi" />
+                <input className="rounded-2xl px-3 py-1 bg-transparent border border-white w-full pr-10" type={showPassword ? "text" : "password"} id="password" placeholder="Masukkan kata sandi" required />
                 <button type="button" className="absolute inset-y-0 right-4 top-5 flex items-center scroll-px-3" onClick={togglePasswordVisibility}>
                   {showPassword ? (
                     <svg className="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -43,7 +43,7 @@ function Masuk() {
               <div className="flex text-start">
                 <p>
                   Belum punya akun?{" "}
-                  <Link className="font-bold" to="/daftar">
+                  <Link className="font-semibold" to="/daftar">
                     {" "}
                     Daftar
                   </Link>
@@ -52,7 +52,9 @@ function Masuk() {
               <button>Lupa kata sandi?</button>
             </div>
             <div className="flex justify-center">
-              <button className="flex justify-center w-full border px-3 py-1 bg-white bg-opacity-25 border-white rounded-xl">Masuk</button>
+              <Link className="flex justify-center w-full border px-3 py-1 bg-white bg-opacity-25 border-white rounded-xl" to="/">
+                Masuk
+              </Link>
             </div>
             <p className="text-center">Atau</p>
             <div className="flex justify-center">

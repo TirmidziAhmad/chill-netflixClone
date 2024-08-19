@@ -15,7 +15,7 @@ function Daftar() {
             <img className="mx-auto" src="/Logo.png" alt="logo" />
 
             <p>Daftar</p>
-            <p className="text-center">Selamat datang kembali!</p>
+            <p className="text-center">Selamat datang!</p>
             <form className="flex flex-col text-start space-y-4" action="" method="post">
               <div>
                 <label htmlFor="username">Username</label>
@@ -39,7 +39,7 @@ function Daftar() {
                 </button>
               </div>
               <div className="relative">
-                <label htmlFor="password">Kata Sandi</label>
+                <label htmlFor="password">Konfirmasi Kata Sandi</label>
                 <input className="rounded-2xl px-3 py-1 bg-transparent border border-white w-full pr-10" type={showPassword ? "text" : "password"} id="password" placeholder="Daftarkan kata sandi" />
                 <button type="button" className="absolute inset-y-0 right-4 top-5 flex items-center scroll-px-3" onClick={togglePasswordVisibility}>
                   {showPassword ? (
@@ -59,13 +59,18 @@ function Daftar() {
             <div className="flex justify-between">
               <div className="flex text-start">
                 <p>
-                  Sudah punya akun? <Link to="/masuk">Masuk</Link>
+                  Sudah punya akun?{" "}
+                  <Link className="font-semibold" to="/masuk">
+                    Masuk
+                  </Link>
                 </p>
               </div>
               <button>Lupa kata sandi?</button>
             </div>
             <div className="flex justify-center">
-              <button className="flex justify-center w-full border px-3 py-1 bg-white bg-opacity-25 border-white rounded-xl">Daftar</button>
+              <Link className="flex justify-center w-full border px-3 py-1 bg-white bg-opacity-25 border-white rounded-xl" to="/">
+                Daftar
+              </Link>
             </div>
             <p className="text-center">Atau</p>
             <div className="flex justify-center">
