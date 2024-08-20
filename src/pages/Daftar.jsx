@@ -67,12 +67,12 @@ function Daftar() {
               </div>
               <button>Lupa kata sandi?</button>
             </div>
+            <p className="text-center">Atau</p>
             <div className="flex justify-center">
               <Link className="flex justify-center w-full border px-3 py-1 bg-white bg-opacity-25 border-white rounded-xl" to="/">
                 Daftar
               </Link>
             </div>
-            <p className="text-center">Atau</p>
             <div className="flex justify-center">
               <button className="flex w-full justify-center border px-3 py-1 border-white rounded-xl">
                 <svg className="w-4 h-4 mr-2 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">

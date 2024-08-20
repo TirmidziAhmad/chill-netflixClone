@@ -5,12 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 function TopRatingSlider() {
   // Sample data for films
   const films = [
-    { id: 1, title: "Film One", rating: 9.2, poster: "https://path-to-poster1.jpg" },
-    { id: 2, title: "Film Two", rating: 8.7, poster: "https://path-to-poster2.jpg" },
-    { id: 3, title: "Film Three", rating: 9.5, poster: "https://path-to-poster3.jpg" },
-    { id: 4, title: "Film Four", rating: 8.9, poster: "https://path-to-poster4.jpg" },
-    { id: 5, title: "Film Five", rating: 9.3, poster: "https://path-to-poster5.jpg" },
-    { id: 6, title: "Film Six", rating: 8.6, poster: "https://path-to-poster6.jpg" },
+    { id: 1, title: "Film One", rating: 9.2, poster: "bgMasuk.jpeg" },
+    { id: 2, title: "Film Two", rating: 8.7, poster: "bgMasuk.jpeg" },
+    { id: 3, title: "Film Three", rating: 9.5, poster: "bgMasuk.jpeg" },
+    { id: 4, title: "Film Four", rating: 8.9, poster: "bgMasuk.jpeg" },
+    { id: 5, title: "Film Five", rating: 9.3, poster: "bgMasuk.jpeg" },
+    { id: 6, title: "Film Six", rating: 8.6, poster: "bgMasuk.jpeg" },
     // Add more films as needed
   ];
 
@@ -49,7 +49,7 @@ function TopRatingSlider() {
   return (
     <section className="bg-black text-white py-10">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8">Top Rating Films</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-8">Top Rating Film dan Series Hari ini</h2>
         <Slider {...settings}>
           {films.map((film) => (
             <div key={film.id} className="p-2">
