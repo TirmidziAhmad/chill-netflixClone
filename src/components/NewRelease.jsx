@@ -2,14 +2,15 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function NewRelease() {
+function TopRatingSlider() {
+  // Sample data for films
   const films = [
-    { id: 1, title: "Film One", rating: 9.2, poster: "https://path-to-poster1.jpg" },
-    { id: 2, title: "Film Two", rating: 8.7, poster: "https://path-to-poster2.jpg" },
-    { id: 3, title: "Film Three", rating: 9.5, poster: "https://path-to-poster3.jpg" },
-    { id: 4, title: "Film Four", rating: 8.9, poster: "https://path-to-poster4.jpg" },
-    { id: 5, title: "Film Five", rating: 9.3, poster: "https://path-to-poster5.jpg" },
-    { id: 6, title: "Film Six", rating: 8.6, poster: "https://path-to-poster6.jpg" },
+    { id: 1, title: "Film One", rating: 9.2, poster: "moviePotrait.png" },
+    { id: 2, title: "Film Two", rating: 8.7, poster: "moviePotrait.png" },
+    { id: 3, title: "Film Three", rating: 9.5, poster: "moviePotrait.png" },
+    { id: 4, title: "Film Four", rating: 8.9, poster: "moviePotrait.png" },
+    { id: 5, title: "Film Five", rating: 9.3, poster: "moviePotrait.png" },
+    { id: 6, title: "Film Six", rating: 8.6, poster: "moviePotrait.png" },
     // Add more films as needed
   ];
 
@@ -18,7 +19,7 @@ function NewRelease() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4, // Number of slides to show at once
+    slidesToShow: 5, // Number of slides to show at once
     slidesToScroll: 1,
     responsive: [
       {
@@ -53,10 +54,16 @@ function NewRelease() {
           {films.map((film) => (
             <div key={film.id} className="p-2">
               <div className="relative">
-                <img src={film.poster} alt={film.title} className="w-full h-64 object-cover rounded-md" />
-                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 p-2 flex justify-between items-center">
-                  <h3 className="text-sm font-semibold">{film.title}</h3>
-                  <span className="text-yellow-400 text-sm font-bold">{film.rating}</span>
+                <div className="w-full h-96 overflow-hidden rounded-md flex items-center justify-center">
+                  <img src={film.poster} alt={film.title} className="h-full object-cover" />
+                </div>
+                <div className="absolute top-0 left-0  bg-opacity-75 p-2 ">
+                  <p className="bg-blue-800 px-2 py-1 rounded-2xl">Episode Baru</p>
+                </div>
+                <div className="absolute top-0 right-1 bg-red-700 p-2 flex justify-between items-center rounded text-center">
+                  <h3 className="text-sm font-semibold">
+                    Top <br /> 10
+                  </h3>
                 </div>
               </div>
             </div>
@@ -67,4 +74,4 @@ function NewRelease() {
   );
 }
 
-export default NewRelease;
+export default TopRatingSlider;

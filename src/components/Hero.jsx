@@ -14,7 +14,7 @@ function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-tr from-black to-transparent"></div>
 
       {/* Content */}
-      <div className="container mx-auto z-10 px-6 md:px-12">
+      <div className="container mx-auto z-10 px-6 md:px-12 flex">
         <div className="flex flex-col text-start w-full md:w-2/3 ">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Duty After School</h1>
           <p className="mb-8">
@@ -32,7 +32,11 @@ function HeroSection() {
             <p className="flex px-3 py-1 rounded-3xl text-xl font-bold justify-center items-center border">18+</p>
           </div>
         </div>
-        <div className="md:w-1/3"></div>
+        <div className="relative md:w-1/3">
+          <figure className="absolute bottom-0 right-0">
+            <img src="volume.png" alt="" className="" />
+          </figure>
+        </div>
       </div>
     </section>
   );

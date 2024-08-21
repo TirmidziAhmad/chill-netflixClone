@@ -5,12 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 function Continue() {
   // Sample data for films
   const films = [
-    { id: 1, title: "Film One", rating: 9.2, poster: "bgMasuk.jpeg" },
-    { id: 2, title: "Film Two", rating: 8.7, poster: "bgMasuk.jpeg" },
-    { id: 3, title: "Film Three", rating: 9.5, poster: "bgMasuk.jpeg" },
-    { id: 4, title: "Film Four", rating: 8.9, poster: "bgMasuk.jpeg" },
-    { id: 5, title: "Film Five", rating: 9.3, poster: "bgMasuk.jpeg" },
-    { id: 6, title: "Film Six", rating: 8.6, poster: "bgMasuk.jpeg" },
+    { id: 1, title: "Film One", rating: 9.2, poster: "movie.png" },
+    { id: 2, title: "Film Two", rating: 8.7, poster: "movie.png" },
+    { id: 3, title: "Film Three", rating: 9.5, poster: "movie.png" },
+    { id: 4, title: "Film Four", rating: 8.9, poster: "movie.png" },
+    { id: 5, title: "Film Five", rating: 9.3, poster: "movie.png" },
+    { id: 6, title: "Film Six", rating: 8.6, poster: "movie.png" },
     // Add more films as needed
   ];
 
@@ -55,9 +55,22 @@ function Continue() {
             <div key={film.id} className="p-2">
               <div className="relative">
                 <img src={film.poster} alt={film.title} className="w-full h-48 object-cover rounded-md" />
-                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 p-2 flex justify-between items-center">
+                <div className="absolute top-0 left-0  bg-opacity-75 p-2 ">
+                  <p className="bg-blue-800 px-2 py-1 rounded-2xl">Episode Baru</p>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t form-black bg-opacity-75 p-2 flex justify-between items-center">
                   <h3 className="text-sm font-semibold">{film.title}</h3>
-                  <span className="text-yellow-400 text-sm font-bold">{film.rating}</span>
+                  <span className="text-white text-sm font-bold flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 flex">
+                      <path
+                        className="fill-white"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                      />
+                    </svg>
+                    {film.rating}/5
+                  </span>
                 </div>
               </div>
             </div>
