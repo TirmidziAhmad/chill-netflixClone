@@ -1,12 +1,29 @@
+import { useState, useEffect } from "react";
+import { getSingleTrendingData } from "../api/api";
 function HeroSection() {
+  const [movie, setMovie] = useState();
+
+  useEffect(() => {
+    const fetchTrendingMovies = async () => {
+      try {
+        const data = await getSingleTrendingData();
+        setMovie(data);
+      } catch (error) {
+        console.error("Error fetching trending movies:", error);
+      }
+    };
+
+    fetchTrendingMovies();
+  }, []);
+  if (!movie) return <div className="text-3xl ">Loading...</div>;
   return (
     <section className="relative bg-black text-white h-screen flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="bgMasuk.jpeg" // Replace with your image URL
-          alt="Background"
-          className=" relative w-full h-full "
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} // Replace with your image URL
+          alt={movie.title}
+          className="relative w-full h-full"
         />
       </div>
 
@@ -17,10 +34,8 @@ function HeroSection() {
       <div className="flex flex-col container mx-auto z-10">
         <div className="flex">
           <div className="flex flex-col text-start w-full  ">
-            <h1 className="flex text-4xl md:text-6xl font-bold mb-4">Duty After School</h1>
-            <p className="flex mb-8 md:w-2/3">
-              Sebuah benda tak dikenal mengambil alih dunia. Dalam keputusasaan, Departemen Pertahanan mulai merekrut lebih banyak tentara, termasuk siswa sekolah menengah. Mereka pun segera menjadi pejuang garis depan dalam perang.
-            </p>
+            <h1 className="flex text-4xl md:text-6xl font-bold mb-4">{movie.title}</h1>
+            <p className="flex mb-8 md:w-2/3">{movie.overview}</p>
           </div>
         </div>
         <div className="container mx-auto flex gap-4 w-full">

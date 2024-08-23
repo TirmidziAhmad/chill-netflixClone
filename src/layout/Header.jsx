@@ -10,7 +10,7 @@ function Header() {
   };
   return (
     <>
-      <header className="  bg-black text-white  p-4 h-24 space-x-8 ">
+      <header className=" bg-black text-white  p-4 h-24 space-x-8 ">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-8 ">
             {/* Logo for Large Screens */}

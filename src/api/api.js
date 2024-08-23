@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = "your_tmdb_api_key"; // Replace with your actual TMDB API key
+const API_KEY = "0152e415f9234ef6b5239b09fef422b5"; // Replace with your actual TMDB API key
 const BASE_URL = "https://api.themoviedb.org/3";
 
 const tmdbApi = axios.create({
@@ -21,28 +21,35 @@ export const getTopRatedMovies = async () => {
   }
 };
 
-// Example function to search for movies by keyword
-export const searchMovies = async (query) => {
+export const trendingMovies = async () => {
   try {
-    const response = await tmdbApi.get("/search/movie", {
-      params: {
-        query,
-      },
-    });
+    const response = await tmdbApi.get("/trending/movie/week");
     return response.data.results;
   } catch (error) {
-    console.error("Error searching movies:", error);
+    console.error("Error fetching top-rated movies:", error);
     throw error;
   }
 };
 
 // Example function to get movie details by ID
-export const getMovieDetails = async (movieId) => {
+export const NewRelease = async () => {
   try {
-    const response = await tmdbApi.get(`/movie/${movieId}`);
-    return response.data;
+    const response = await tmdbApi.get("/movie/upcoming");
+    return response.data.results;
   } catch (error) {
-    console.error("Error fetching movie details:", error);
+    console.error("Error fetching new release", error);
+    throw error;
+  }
+};
+
+export const getSingleTrendingData = async () => {
+  try {
+    const response = await tmdbApi.get("/trending/movie/day");
+    const movies = response.data.results;
+    const randomIndex = Math.floor(Math.random() * movies.length);
+    return movies[randomIndex];
+  } catch (error) {
+    console.error("Error fetching top-rated movies:", error);
     throw error;
   }
 };
