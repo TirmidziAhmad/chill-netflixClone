@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer className="bg-black text-white py-10">
-      <div className="container mx-auto flex justify-between">
+      <div className="container mx-auto items-center justify-between flex ">
         {/* Logo and Copyright Section */}
         <div className="flex flex-col justify-center w-1/3">
           <img src="Logo.png" alt="Logo" className="w-52" />

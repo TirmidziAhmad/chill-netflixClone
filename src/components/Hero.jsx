@@ -21,14 +21,14 @@ function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} // Replace with your image URL
+          src={`https://image.tmdb.org/t/p/w1280${movie.poster_path}`} // Replace with your image URL
           alt={movie.title}
-          className="relative w-full h-full"
+          className="relative w-full h-full object-cover max-h-fit"
         />
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-black to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
 
       {/* Content */}
       <div className="flex flex-col container mx-auto z-10">
