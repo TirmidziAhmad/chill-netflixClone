@@ -1,19 +1,18 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React from "react";
+import IntroHeader from "./components/molecules/IntroHeader";
+import IntroForm from "./components/molecules/IntroForm";
 
-import Masuk from "./pages/Masuk";
-import Daftar from "./pages/Daftar";
-import LandingPage from "./pages/LandingPage";
 function App() {
+  const handleClick = () => {
+    alert("Button clicked!");
+  };
+
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/Masuk" element={<Masuk />} />
-          <Route path="/Daftar" element={<Daftar />} />
-          <Route path="/" element={<LandingPage />} />
-        </Routes>
-      </Router>
-    </>
+    <div className="App">
+      <div className="w-full h-full bg-black">
+        <IntroHeader></IntroHeader>
+      </div>
+    </div>
   );
 }
 
