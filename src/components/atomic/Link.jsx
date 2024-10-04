@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function LinkButton({ to, children, className }) {
   return (
-    <Link to={to} className={`px-4 py-2 text-white ${className}`}>
+    <Link to={to} className={` ${className}`}>
       {children}
     </Link>
   );

@@ -6,8 +6,8 @@ function Input({ labelText, type = "text", placeholder, style = "first" }) {
 
   return (
     <>
-      <label htmlFor="">{labelText}</label>
-      <input type={type} placeholder={placeholder} className={styles[style]} />;
+      <label htmlFor={labelText}>{labelText}</label>
+      <input type={type} placeholder={placeholder} className={styles[style]} />
     </>
   );
 }

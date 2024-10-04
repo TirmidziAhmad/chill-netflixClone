@@ -1,18 +1,17 @@
-import React from "react";
-import IntroHeader from "./components/molecules/IntroHeader";
-import IntroForm from "./components/molecules/IntroForm";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import AuthLoginPage from "./pages/AuthLoginPage";
+import AuthRegisterPage from "./pages/AuthRegisterPage";
 
 function App() {
-  const handleClick = () => {
-    alert("Button clicked!");
-  };
-
   return (
-    <div className="App">
-      <div className="w-full h-full bg-black">
-        <IntroHeader></IntroHeader>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/login" element={<AuthLoginPage />} />
+          <Route path="/Register" element={<AuthRegisterPage />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 
