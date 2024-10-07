@@ -1,6 +1,6 @@
 import AuthButton from "../molecules/AuthButton";
 import AuthLoginForm from "../molecules/AuthLoginForm";
-import Link from "../atomic/Link";
+import { Link } from "react-router-dom";
 import Logo from "../atomic/Logo";
 
 function AuthLoginCard({}) {
@@ -14,13 +14,13 @@ function AuthLoginCard({}) {
       <AuthLoginForm />
       <div className="flex justify-between">
         <span>
-          Belum punya akun? <Link to="/Register">Daftar</Link>
+          Belum punya akun? <Link to="/register">Daftar</Link>
         </span>
         <span>
-          <Link to="/Register"> Lupa kata sandi?</Link>{" "}
+          <Link to="/register"> Lupa kata sandi?</Link>{" "}
         </span>
       </div>
-      <AuthButton firstButton="register" secondButton="Register" />
+      <AuthButton firstButton="login" secondButton="login" />
     </div>
   );
 }

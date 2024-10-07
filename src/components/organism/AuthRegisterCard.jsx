@@ -1,6 +1,6 @@
 import AuthButton from "../molecules/AuthButton";
 import AuthRegisterForm from "../molecules/AuthRegisterForm";
-import Link from "../atomic/Link";
+import { Link } from "react-router-dom";
 import Logo from "../atomic/Logo";
 
 function AuthRegisterCard({}) {
