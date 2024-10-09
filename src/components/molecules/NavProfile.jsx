@@ -4,7 +4,7 @@ import ListDropDown from "../atomic/ListDropDown";
 
 function ProfileDropDown() {
   return (
-    <div>
+    <div className="flex">
       <Profile />
       <ListDropDown />
     </div>

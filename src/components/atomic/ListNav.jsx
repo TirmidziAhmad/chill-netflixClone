@@ -9,7 +9,7 @@ function NavList() {
 
   return (
     <div className="container ml-3 flex justify-between items-center">
-      <ul className="flex">
+      <ul className="flex gap-4">
         {navItems.map((item) => (
           <Link to={item.path}>
             <li key={item.label} className="flex">
