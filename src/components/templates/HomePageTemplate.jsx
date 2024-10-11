@@ -1,14 +1,19 @@
-import CardMovieLabeled from "../components/molecules/CardMovieLabeled";
-
-function HomeTemplate({ movies }) {
+import NavBar from "../organism/NavBar";
+import SectionHero from "../organism/SectionHero";
+import SectionContinue from "../organism/SectionContinue";
+import SectionTopRating from "../organism/SectionTopRating";
+import SectionTrending from "../organism/SectionTrending";
+import SectionNewRelease from "../organism/SectionNewRelease";
+function HomeTemplate({ image, title, desc }) {
   return (
-    <div>
-      <h1>Home</h1>
-      <div className="grid grid-cols-3 gap-4">
-        {movies.map((movie) => (
-          <CardMovieLabeled key={movie.id} movie={movie} />
-        ))}
-      </div>
-    </div>
+    <>
+      <NavBar />
+      <SectionHero image={image} title={title} desc={desc} />
+      <SectionContinue />
+      <SectionTopRating />
+      <SectionTrending />
+      <SectionNewRelease />
+    </>
   );
 }
+export default HomeTemplate;

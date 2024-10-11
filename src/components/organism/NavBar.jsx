@@ -4,10 +4,10 @@ import NavProfile from "../molecules/NavProfile";
 
 function NavBar() {
   return (
-    <div className="px-4 lg:px-14 py-3 flex justify-between items-center bg-[#181A1C]">
+    <nav className="px-4 lg:px-14 py-3 flex justify-between items-center bg-[#181A1C]">
       <NavMenu />
       <NavProfile />
-    </div>
+    </nav>
   );
 }
 

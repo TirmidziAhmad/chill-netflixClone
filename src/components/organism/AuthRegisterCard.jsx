@@ -8,8 +8,8 @@ function AuthRegisterCard({}) {
     <div className={`bg-black bg-opacity-70 px-5 py-8 w-80 md:w-96 justify-center items-center rounded-lg`}>
       <Logo />
       <div className="text-center">
-        <p className="">Masuk</p>
-        <p>Selamat Datang Kembali</p>
+        <p className="">Daftar</p>
+        <p>Selamat Datang</p>
       </div>
       <AuthRegisterForm />
       <div className="flex justify-between">
