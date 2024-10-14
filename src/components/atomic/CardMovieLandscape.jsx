@@ -1,13 +1,16 @@
 import React from "react";
 
-function CardMovieLandscape(image, desc, title, star) {
+function CardMovieLandscape({ movie, className, children }) {
   return (
-    <figure className="min-w-[400px] px-2 relative">
-      <img src={image} alt={desc} />
-      <div className=" absolute bottom-0 bg-black left-2 right-2 rounded-lg bg-opacity-15 p-2 text-white flex justify-between items-center">
-        <span>{title}</span>
-        <span>star{star}/5</span>
-      </div>
+    <figure className={`relative w-full h-auto overflow-hidden rounded-lg ${className}`}>
+      {/* Ensure the image fits the landscape and hides overflow */}
+      <img
+        src={movie.image}
+        alt={movie.title}
+        className="object-cover w-full h-32 md:h-48" // Adjust height for landscape format
+        style={{ aspectRatio: "16/9" }} // Ensures the image remains in landscape aspect ratio
+      />
+      {children} {/* Allow additional content, like title and rating */}
     </figure>
   );
 }
