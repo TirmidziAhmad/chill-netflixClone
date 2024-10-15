@@ -6,7 +6,7 @@ import Logo from "../atomic/Logo";
 function AuthRegisterCard({}) {
   return (
     <div className={`bg-black bg-opacity-70 px-5 py-8 w-80 md:w-96 justify-center items-center rounded-lg`}>
-      <Logo />
+      <Logo className={"flex items-center justify-center"} />
       <div className="text-center">
         <p className="">Daftar</p>
         <p>Selamat Datang</p>

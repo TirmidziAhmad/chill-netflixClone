@@ -1,6 +1,6 @@
-function Logo({ logo = "Logo.png" }) {
+function Logo({ logo = "Logo.png", className }) {
   return (
-    <figure className="flex items-center justify-center ">
+    <figure className={className}>
       <img className="object-contain w-40" src={logo} alt="logo" />
     </figure>
   );

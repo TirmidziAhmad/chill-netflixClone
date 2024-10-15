@@ -4,7 +4,9 @@ import SectionContinue from "../organism/SectionContinue";
 import SectionTopRating from "../organism/SectionTopRating";
 import SectionTrending from "../organism/SectionTrending";
 import SectionNewRelease from "../organism/SectionNewRelease";
+import SectionFooter from "../organism/SectionFooter";
 import movies from "../../api/moviesData";
+
 function HomeTemplate({ image, title, desc }) {
   return (
     <>
@@ -16,6 +18,7 @@ function HomeTemplate({ image, title, desc }) {
         <SectionTopRating />
         <SectionTrending />
         <SectionNewRelease />
+        <SectionFooter />
       </div>
     </>
   );
