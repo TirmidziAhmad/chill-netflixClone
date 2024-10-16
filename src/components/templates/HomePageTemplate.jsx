@@ -18,7 +18,11 @@ function HomeTemplate({ image, title, desc }) {
         <SectionTopRating />
         <SectionTrending />
         <SectionNewRelease />
-        <SectionFooter />
+      </div>
+      <div className="border-t border-gray-700">
+        <div className="px-4 lg:px-14">
+          <SectionFooter className="" />
+        </div>
       </div>
     </>
   );

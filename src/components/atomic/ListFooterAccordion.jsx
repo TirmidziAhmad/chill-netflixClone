@@ -1,44 +1,47 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import ListFooter from "../atomic/ListFooter";
 
-function AccordionFooter({ sections }) {
-  // State to track which section is open
-  const [openSection, setOpenSection] = useState(null);
+function FooterGenreAccordion() {
+  // State to manage which accordion section is active
+  const [activeIndex, setActiveIndex] = useState(null);
 
-  // Toggle section visibility
-  const toggleSection = (index) => {
-    setOpenSection(openSection === index ? null : index);
+  // Array of sections with titles and subtitles
+  const genreItems = [
+    { title: "Genre", subtitles: ["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Science Fiction", "Thriller", "War", "Western"] },
+    { title: "Help", subtitles: ["FAQ", "Kontak Kami", "Privasi", "Syarat & Ketentuan"] },
+  ];
+
+  // Toggle specific section
+  const handleToggle = (index) => {
+    setActiveIndex(activeIndex === index ? null : index); // Toggle the active state for clicked section
   };
 
   return (
-    <footer className="container mx-auto p-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {sections.map((section, index) => (
-          <AccordionSection key={index} title={section.title} subtitles={section.subtitles} isOpen={openSection === index} onToggle={() => toggleSection(index)} />
-        ))}
-      </div>
-    </footer>
-  );
-}
+    <div className="mt-10">
+      {/* Render each item in genreItems as its own accordion section */}
+      {genreItems.map((item, index) => (
+        <div key={index} className="mb-4">
+          {/* Accordion button */}
+          <button className="flex w-full justify-between items-center " onClick={() => handleToggle(index)}>
+            <div className="font-bold">{item.title}</div>
+            <div>
+              {/* Arrow icon direction changes based on active section */}
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={`w-6 h-6 transition-transform duration-300 ${activeIndex === index ? "rotate-90" : ""}`}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </div>
+          </button>
 
-function AccordionSection({ title, subtitles, isOpen, onToggle }) {
-  return (
-    <div className="border-b border-gray-200 pb-2">
-      {/* Accordion Header */}
-      <button className="w-full text-left font-semibold py-2 text-black hover:text-gray-700 flex justify-between" onClick={onToggle}>
-        {title}
-        <span>{isOpen ? "-" : "+"}</span>
-      </button>
-
-      {/* Subtitles */}
-      <ul className={`mt-2 space-y-1 ${isOpen ? "block" : "hidden"} md:block`}>
-        {subtitles.map((subtitle, index) => (
-          <li key={index} className="text-gray-600">
-            {subtitle}
-          </li>
-        ))}
-      </ul>
+          {/* Accordion content: only render when section is active */}
+          {activeIndex === index && (
+            <div className="accordion-content mt-2">
+              <ListFooter subtitles={item.subtitles} />
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
 }
 
-export default AccordionFooter;
+export default FooterGenreAccordion;
