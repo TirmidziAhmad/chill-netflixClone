@@ -1,4 +1,4 @@
-function ButtonSlider({ onClick, direction }) {
+function ButtonSlider({ direction, ...props }) {
   const icons = {
     next: {
       icon: (
@@ -19,7 +19,7 @@ function ButtonSlider({ onClick, direction }) {
   };
 
   return (
-    <button onClick={onClick} className={`absolute top-1/2 transform -translate-y-1/2 z-10 bg-gray-700 p-2 rounded-full transition duration-300 ease-in-out hover:bg-gray-600 ${icons[direction].style}`}>
+    <button {...props} className={`absolute top-1/2 transform -translate-y-1/2 z-10 bg-gray-700 p-2 rounded-full transition duration-300 ease-in-out hover:bg-gray-600 ${icons[direction].style}`}>
       {icons[direction].icon} {/* Render the correct icon based on the direction */}
     </button>
   );
