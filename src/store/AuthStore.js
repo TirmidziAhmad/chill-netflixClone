@@ -1,41 +1,53 @@
-import create from "zustand";
+import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import userData from "../api/userData";
-// Store with persist to keep the login state even after page reload
+import usersData from "../api/userData";
+
 const useAuthStore = create(
   persist(
-    (set) => ({
+    (set, get) => ({
       user: null,
-      isLoggedIn: false,
-      error: null,
+      isAuthenticated: false,
+      users: usersData, // Store the entire users array
 
-      // Register function
-      register: async (userData) => {
-        try {
-          // You can add your API call here
-          const response = await fakeRegisterApi(userData); // Replace with your actual API call
-          set({ user: response.user, isLoggedIn: true });
-        } catch (error) {
-          set({ error });
+      login: (username, password) => {
+        const user = get().users.find((u) => u.username === username && u.password === password);
+
+        if (user) {
+          set({ user, isAuthenticated: true });
+          return true;
+        } else {
+          return false;
         }
       },
 
-      // Login function
-      login: async (credentials) => {
-        try {
-          const response = await fakeLoginApi(credentials); // Replace with your actual API call
-          set({ user: response.user, isLoggedIn: true });
-        } catch (error) {
-          set({ error });
-        }
+      register: (newUser) => {
+        set((state) => ({
+          users: [...state.users, newUser],
+          user: newUser,
+          isAuthenticated: true,
+        }));
       },
 
-      // Logout function
-      logout: () => set({ user: null, isLoggedIn: false }),
+      logout: () => {
+        set({ user: null, isAuthenticated: false });
+      },
+
+      updateUser: (updatedUser) => {
+        set((state) => ({
+          users: state.users.map((u) => (u.id === updatedUser.id ? updatedUser : u)),
+          user: state.user?.id === updatedUser.id ? updatedUser : state.user,
+        }));
+      },
+
+      deleteUser: (userId) => {
+        set((state) => ({
+          users: state.users.filter((u) => u.id !== userId),
+          user: state.user?.id === userId ? null : state.user,
+          isAuthenticated: state.user?.id === userId ? false : state.isAuthenticated,
+        }));
+      },
     }),
-    {
-      name: "auth-storage", // Name of the key in localStorage
-    }
+    { name: "auth" }
   )
 );
 

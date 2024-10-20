@@ -1,10 +1,10 @@
-import React from "react";
 import Input from "../atomic/Input";
-function AuthLoginForm({ className }) {
+function AuthLoginForm({ userName, password, setUserName, setPassword, onSubmit, children }) {
   return (
-    <form action="POST" className="flex flex-col ">
-      <Input labelText="Username" placeholder="Masukkan username" type="text"></Input>
-      <Input labelText="Kata Sandi" placeholder="Masukkan kata sandi" type="text"></Input>
+    <form onSubmit={onSubmit} className="flex flex-col">
+      <Input labelText="Username" placeholder="Masukkan username" type="text" value={userName} onChange={(e) => setUserName(e.target.value)} />
+      <Input labelText="Kata Sandi" placeholder="Masukkan kata sandi" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      {children}
     </form>
   );
 }
