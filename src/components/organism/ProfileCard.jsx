@@ -53,6 +53,7 @@ function ProfileCard() {
 
   return (
     <div className="flex flex-col md:w-1/2">
+      <h1 className="text-2xl">Profile Saya</h1>
       <div className="flex flex-col">
         <div className="flex mt-4 gap-5">
           <figure className="rounded-full">
