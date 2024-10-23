@@ -1,11 +1,12 @@
 import { useCallback } from "react";
 import CardMovieLandscapeTitled from "../molecules/CardMovieLandscapeTitled";
-import movies from "../../api/moviesData";
+// import movies from "../../api/moviesData";
 import useEmblaCarousel from "embla-carousel-react";
 import ButtonSlider from "../atomic/ButtonSlider";
+import { useApi } from "../../hooks/useAPI";
 function SectionContinue() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start" });
-
+  const { data: movie, loading, error } = useApi("/moviesData");
   const handlePrevClick = useCallback(() => {
     emblaApi.scrollPrev();
   }, [emblaApi]);
@@ -13,6 +14,9 @@ function SectionContinue() {
   const handleNextClick = useCallback(() => {
     emblaApi.scrollNext();
   }, [emblaApi]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <section className="my-8">
@@ -23,7 +27,7 @@ function SectionContinue() {
         <div className="embla overflow-hidden">
           <div className="embla__viewport " ref={emblaRef}>
             <div className="embla__container flex space-x-4">
-              {movies.map((movie) => (
+              {movie?.slice(0, 10).map((movie) => (
                 <div className="embla__slide min-w-[240px] md:min-w-[320px] lg:min-w-[400px]" key={movie.id}>
                   <CardMovieLandscapeTitled movie={movie} />
                 </div>

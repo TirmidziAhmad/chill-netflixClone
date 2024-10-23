@@ -1,7 +1,7 @@
-import React from "react";
+import PremiumPageTemplate from "../components/templates/PremiumPageTemplate";
 
 function SubscribePage() {
-  return <div>SubscribePage</div>;
+  return <PremiumPageTemplate />;
 }
 
 export default SubscribePage;

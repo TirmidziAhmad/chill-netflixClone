@@ -8,7 +8,7 @@ function SectionFooter() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 1120) {
         // adjust the mobile size threshold as needed
         setIsMobile(true);
       } else {
