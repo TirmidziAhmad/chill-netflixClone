@@ -3,10 +3,10 @@ import CardMovieLandscapeTitled from "../molecules/CardMovieLandscapeTitled";
 // import movies from "../../api/moviesData";
 import useEmblaCarousel from "embla-carousel-react";
 import ButtonSlider from "../atomic/ButtonSlider";
-import { useApi } from "../../hooks/useAPI";
+import { useFetch } from "../../hooks/useFetch";
 function SectionContinue() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start" });
-  const { data: movie, loading, error } = useApi("/moviesData");
+  const { data: movies, loading, error } = useFetch("/moviesData");
   const handlePrevClick = useCallback(() => {
     emblaApi.scrollPrev();
   }, [emblaApi]);
@@ -27,7 +27,7 @@ function SectionContinue() {
         <div className="embla overflow-hidden">
           <div className="embla__viewport " ref={emblaRef}>
             <div className="embla__container flex space-x-4">
-              {movie?.slice(0, 10).map((movie) => (
+              {movies?.map((movie) => (
                 <div className="embla__slide min-w-[240px] md:min-w-[320px] lg:min-w-[400px]" key={movie.id}>
                   <CardMovieLandscapeTitled movie={movie} />
                 </div>
