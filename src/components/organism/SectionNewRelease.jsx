@@ -1,6 +1,5 @@
 import { useCallback } from "react";
 import CardMovieLabeled from "../molecules/CardMovieLabeled";
-// import movies from "../../api/moviesData";
 import useEmblaCarousel from "embla-carousel-react";
 import ButtonSlider from "../atomic/ButtonSlider";
 import { useFetch } from "../../hooks/useFetch";

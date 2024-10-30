@@ -1,12 +1,11 @@
 import { useCallback } from "react";
 import CardMovieLabeled from "../molecules/CardMovieLabeled";
-// import movies from "../../api/moviesData";
 import useEmblaCarousel from "embla-carousel-react";
 import ButtonSlider from "../atomic/ButtonSlider";
 import { useFetch } from "../../hooks/useFetch";
 function SectionUserMovieList() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start" });
-  const { data: movies, Loading, error } = useFetch("/moviesData");
+  const { data: movies, loading, error } = useFetch("/moviesData");
   const handlePrevClick = useCallback(() => {
     emblaApi.scrollPrev();
   }, [emblaApi]);
@@ -14,7 +13,8 @@ function SectionUserMovieList() {
   const handleNextClick = useCallback(() => {
     emblaApi.scrollNext();
   }, [emblaApi]);
-  if (Loading) {
+
+  if (loading) {
     return <div>Loading...</div>;
   }
   if (error) {

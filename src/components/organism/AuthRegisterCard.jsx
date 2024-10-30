@@ -3,20 +3,33 @@ import AuthRegisterForm from "../molecules/AuthRegisterForm";
 import { Link } from "react-router-dom";
 import Logo from "../atomic/Logo";
 import { useState } from "react";
-import useAuthStore from "../../store/AuthStore";
+import AuthStore from "../../store/AuthStore";
 import { useNavigate } from "react-router-dom";
+import { userService } from "../../api/services/userService";
 function AuthRegisterCard() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const register = useAuthStore((state) => state.register);
+  const register = AuthStore((state) => state.register);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-      register({ username: userName, password: password });
-      navigate("/login");
+      const userData = {
+        username: userName,
+        password: password,
+      };
+      const response = await userService.createUser(userData);
+      const saveToLocal = {
+        username: response.username,
+        id: response.id,
+        password: response.password,
+      };
+      console.log(saveToLocal);
+
+      register(saveToLocal);
+      navigate("/");
     } else {
       alert("Passwords do not match. Please try again.");
     }

@@ -1,12 +1,12 @@
 import { useCallback } from "react";
 import CardMovieLabeled from "../molecules/CardMovieLabeled";
-// import movies from "../../api/moviesData";
 import useEmblaCarousel from "embla-carousel-react";
 import ButtonSlider from "../atomic/ButtonSlider";
-import { useFetch } from "../../hooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 function SectionTopRating() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start" });
   const { data: movies, loading, error } = useFetch("/moviesData");
+
   const handlePrevClick = useCallback(() => {
     emblaApi.scrollPrev();
   }, [emblaApi]);
@@ -16,7 +16,7 @@ function SectionTopRating() {
   }, [emblaApi]);
 
   if (loading) {
-    return <div>loading...</div>;
+    return <div>Loading...</div>;
   }
   if (error) {
     return <div>Error: {error}</div>;

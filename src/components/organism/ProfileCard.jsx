@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../atomic/Button";
 import Input from "../atomic/Input";
 import useAuthStore from "../../store/AuthStore";
-
+import { userService } from "../../api/services/userService";
 function ProfileCard() {
   const navigate = useNavigate();
   const { user, updateUser, deleteUser, logout } = useAuthStore();
@@ -13,12 +13,14 @@ function ProfileCard() {
     password: "",
   });
 
+  const { updateUser: updateUserProfile, deleteUser: deleteUserAccount } = userService;
+
   useEffect(() => {
     if (user) {
       setFormData({
         username: user.username || "",
         email: user.email || "",
-        password: "",
+        password: user.password || "",
       });
     }
   }, [user]);
@@ -38,14 +40,17 @@ function ProfileCard() {
         ...user,
         ...formData,
       };
+      console.log(updatedUserData);
+
       updateUser(updatedUserData);
+      updateUserProfile(updatedUserData.id, updatedUserData);
       alert("Profile updated successfully!");
     }
   };
 
   const handleDeleteAccount = () => {
     if (window.confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
-      deleteUser(user.id);
+      deleteUserAccount(user.id);
       logout();
       navigate("/");
     }

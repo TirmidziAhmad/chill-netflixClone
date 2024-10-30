@@ -5,15 +5,27 @@ import SectionTopRating from "../organism/SectionTopRating";
 import SectionTrending from "../organism/SectionTrending";
 import SectionNewRelease from "../organism/SectionNewRelease";
 import SectionFooter from "../organism/SectionFooter";
-import movies from "../../api/moviesData";
+import { movieService } from "../../api/services/movieService";
+import { useState, useEffect } from "react";
+function HomeTemplate() {
+  const [featuredMovie, setFeaturedMovie] = useState({});
+  const fetchMovies = async () => {
+    try {
+      const response = await movieService.getMovie();
+      setFeaturedMovie(response[0]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-function HomeTemplate({ image, title, desc }) {
+  useEffect(() => {
+    fetchMovies();
+  }, []);
   return (
     <>
       <NavBar />
-      <SectionHero image={movies[1].image} title={movies[1].title} desc={movies[1].description} />
+      <SectionHero image={featuredMovie.image} title={featuredMovie.title} desc={featuredMovie.description} />
       <div className="px-4 lg:px-14">
-        {" "}
         <SectionContinue />
         <SectionTopRating />
         <SectionTrending />
@@ -21,10 +33,11 @@ function HomeTemplate({ image, title, desc }) {
       </div>
       <div className="border-t border-gray-700">
         <div className="px-4 lg:px-14">
-          <SectionFooter className="" />
+          <SectionFooter />
         </div>
       </div>
     </>
   );
 }
+
 export default HomeTemplate;
