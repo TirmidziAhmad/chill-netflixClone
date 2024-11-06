@@ -24,9 +24,9 @@ function AuthRegisterCard() {
       const saveToLocal = {
         username: response.username,
         id: response.id,
+        email: response.email,
         password: response.password,
       };
-      console.log(saveToLocal);
 
       register(saveToLocal);
       navigate("/");

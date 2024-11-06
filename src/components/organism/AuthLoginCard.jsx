@@ -10,7 +10,7 @@ function AuthLoginCard() {
   const [password, setPassword] = useState("");
   const login = AuthStore((state) => state.login);
   const navigate = useNavigate();
-  const { data: users, loading, error } = useFetch("/users");
+  const { data: users } = useFetch("/users");
 
   const handleSubmit = async (e) => {
     e.preventDefault();

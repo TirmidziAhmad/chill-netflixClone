@@ -50,6 +50,7 @@ function ProfileCard() {
 
   const handleDeleteAccount = () => {
     if (window.confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+      deleteUser(user.id);
       deleteUserAccount(user.id);
       logout();
       navigate("/");
